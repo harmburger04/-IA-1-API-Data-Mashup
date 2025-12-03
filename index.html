@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Night Planner - Weather-Based Movie Recommendations</title>
+    <meta name="description" content="Get personalized movie recommendations based on the weather in your city">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Movie Night Planner</h1>
+            <p class="tagline">Perfect movie recommendations based on your weather</p>
+        </header>
+
+        <main class="main-content">
+            <section class="search-section">
+                <div class="search-card">
+                    <h2>Find Your Perfect Movie</h2>
+                    <form id="searchForm" class="search-form">
+                        <div class="input-group">
+                            <input type="text" id="cityInput"
+                                placeholder="Enter your city (e.g., London, Tokyo, New York)" required
+                                autocomplete="off">
+                            <button type="submit" id="searchBtn" class="btn-primary">
+                                <span class="btn-text">Get Recommendations</span>
+                                <span class="btn-icon"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <div id="loadingState" class="state-container loading-state hidden">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Finding the perfect movies for your weather...</p>
+            </div>
+
+            <div id="errorState" class="state-container error-state hidden">
+                <div class="error-icon">!</div>
+                <h3 class="error-title">Oops! Something went wrong</h3>
+                <p class="error-message" id="errorMessage"></p>
+                <button id="retryBtn" class="btn-secondary">
+                    <span>Try Again</span>
+                </button>
+            </div>
+
+            <div id="emptyState" class="state-container empty-state hidden">
+                <div class="empty-icon">?</div>
+                <h3 class="empty-title">No Results Found</h3>
+                <p class="empty-message">We couldn't find any movies matching your criteria. Try a different search!</p>
+            </div>
+
+            <section id="resultsSection" class="results-section hidden">
+                <div class="weather-info-card" id="weatherInfo"></div>
+                <div class="movies-header">
+                    <h2>Recommended Movies</h2>
+                    <p id="moviesSubtitle" class="movies-subtitle"></p>
+                </div>
+                <div id="moviesGrid" class="movies-grid"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Data provided by <a href="https://www.omdbapi.com/" target="_blank">OMDb API</a> and <a
+                    href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+# Dependency directories
+node_modules/
+
+# Environment variables (if you create one later)
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Personal API key (backup copy)
+config.backup.js
